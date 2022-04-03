@@ -28,6 +28,7 @@ struct behavior_key_repeat_config {
 struct behavior_key_repeat_data {
     struct zmk_keycode_state_changed last_keycode_pressed;
     struct zmk_keycode_state_changed current_keycode_pressed;
+    bool last_keycode_released;
 };
 
 static int on_key_repeat_binding_pressed(struct zmk_behavior_binding *binding,
@@ -43,6 +44,11 @@ static int on_key_repeat_binding_pressed(struct zmk_behavior_binding *binding,
            sizeof(struct zmk_keycode_state_changed));
     data->current_keycode_pressed.timestamp = k_uptime_get();
 
+    if (!data->last_keycode_released) {
+        data->current_keycode_pressed.state = false;
+        ZMK_EVENT_RAISE(new_zmk_keycode_state_changed(data->current_keycode_pressed));
+        data->current_keycode_pressed.state = true;
+    }
     ZMK_EVENT_RAISE(new_zmk_keycode_state_changed(data->current_keycode_pressed));
 
     return ZMK_BEHAVIOR_OPAQUE;
@@ -78,10 +84,11 @@ static const struct device *devs[DT_NUM_INST_STATUS_OKAY(DT_DRV_COMPAT)];
 
 static int key_repeat_keycode_state_changed_listener(const zmk_event_t *eh) {
     struct zmk_keycode_state_changed *ev = as_zmk_keycode_state_changed(eh);
-    if (ev == NULL || !ev->state) {
+    if (ev == NULL) {
         return ZMK_EV_EVENT_BUBBLE;
     }
 
+    bool ev_captured = false;
     for (int i = 0; i < DT_NUM_INST_STATUS_OKAY(DT_DRV_COMPAT); i++) {
         const struct device *dev = devs[i];
         if (dev == NULL) {
@@ -91,16 +98,32 @@ static int key_repeat_keycode_state_changed_listener(const zmk_event_t *eh) {
         struct behavior_key_repeat_data *data = dev->data;
         const struct behavior_key_repeat_config *config = dev->config;
 
-        for (int u = 0; u < config->usage_pages_count; u++) {
-            if (config->usage_pages[u] == ev->usage_page) {
-                memcpy(&data->last_keycode_pressed, ev, sizeof(struct zmk_keycode_state_changed));
-                data->last_keycode_pressed.implicit_modifiers |= zmk_hid_get_explicit_mods();
-                break;
+        if (ev->state) {
+            for (int u = 0; u < config->usage_pages_count; u++) {
+                if (config->usage_pages[u] == ev->usage_page) {
+                    memcpy(&data->last_keycode_pressed, ev,
+                           sizeof(struct zmk_keycode_state_changed));
+                    data->last_keycode_pressed.implicit_modifiers |= zmk_hid_get_explicit_mods();
+                    data->last_keycode_released = false;
+                    break;
+                }
+            }
+        } else {
+            data->last_keycode_released =
+                (ev->usage_page == data->last_keycode_pressed.usage_page &&
+                 ev->keycode == data->last_keycode_pressed.keycode &&
+                 ev->implicit_modifiers == data->last_keycode_pressed.implicit_modifiers);
+
+            if (data->current_keycode_pressed.state &&
+                ev->usage_page == data->current_keycode_pressed.usage_page &&
+                ev->keycode == data->current_keycode_pressed.keycode &&
+                ev->implicit_modifiers == data->current_keycode_pressed.implicit_modifiers) {
+                ev_captured = true;
             }
         }
     }
 
-    return ZMK_EV_EVENT_BUBBLE;
+    return ev_captured ? ZMK_EV_EVENT_HANDLED : ZMK_EV_EVENT_BUBBLE;
 }
 
 static int behavior_key_repeat_init(const struct device *dev) {

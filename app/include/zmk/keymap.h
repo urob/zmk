@@ -17,8 +17,16 @@ typedef uint32_t zmk_keymap_layers_state_t;
 uint8_t zmk_keymap_layer_default(void);
 zmk_keymap_layers_state_t zmk_keymap_layer_state(void);
 bool zmk_keymap_layer_active(uint8_t layer);
+#if IS_ENABLED(CONFIG_ZMK_TRACK_MOMENTARY_LAYERS)
+bool zmk_keymap_layer_momentary(uint8_t layer);
+bool zmk_keymap_layers_any_momentary(zmk_keymap_layers_state_t layers_mask);
+#endif
 uint8_t zmk_keymap_highest_layer_active(void);
+#if IS_ENABLED(CONFIG_ZMK_TRACK_MOMENTARY_LAYERS)
+int zmk_keymap_layer_activate(uint8_t layer, bool momentary);
+#else
 int zmk_keymap_layer_activate(uint8_t layer);
+#endif
 int zmk_keymap_layer_deactivate(uint8_t layer);
 int zmk_keymap_layer_toggle(uint8_t layer);
 int zmk_keymap_layer_to(uint8_t layer);

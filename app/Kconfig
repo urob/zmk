@@ -702,6 +702,9 @@ config ZMK_KEYMAP_SENSORS_DEFAULT_TRIGGERS_PER_ROTATION
 
 endif # ZMK_KEYMAP_SENSORS
 
+config ZMK_TRACK_MOMENTARY_LAYERS
+    bool "Track whether layer activations are momentary"
+
 choice CBPRINTF_IMPLEMENTATION
     default CBPRINTF_NANO
 

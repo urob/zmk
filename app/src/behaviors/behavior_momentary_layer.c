@@ -44,7 +44,11 @@ static int behavior_mo_init(const struct device *dev) { return 0; };
 static int mo_keymap_binding_pressed(struct zmk_behavior_binding *binding,
                                      struct zmk_behavior_binding_event event) {
     LOG_DBG("position %d layer %d", event.position, binding->param1);
+#if IS_ENABLED(CONFIG_ZMK_TRACK_MOMENTARY_LAYERS)
+    return zmk_keymap_layer_activate(binding->param1, true);
+#else
     return zmk_keymap_layer_activate(binding->param1);
+#endif
 }
 
 static int mo_keymap_binding_released(struct zmk_behavior_binding *binding,

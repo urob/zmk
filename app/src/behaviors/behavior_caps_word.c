@@ -51,7 +51,11 @@ static void activate_caps_word(const struct device *dev) {
     const struct behavior_caps_word_config *config = dev->config;
 
     if (config->layers > -1) {
+#if IS_ENABLED(CONFIG_ZMK_TRACK_MOMENTARY_LAYERS)
+        zmk_keymap_layer_activate(config->layers, false);
+#else
         zmk_keymap_layer_activate(config->layers);
+#endif // IS_ENABLED(CONFIG_ZMK_TRACK_MOMENTARY_LAYERS)
     }
     data->active = true;
 }

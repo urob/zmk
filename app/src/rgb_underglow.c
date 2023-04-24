@@ -7,6 +7,7 @@
 #include <zephyr/device.h>
 #include <zephyr/init.h>
 #include <zephyr/kernel.h>
+#include <zephyr/pm/device.h>
 #include <zephyr/pm/device_runtime.h>
 #include <zephyr/settings/settings.h>
 
@@ -244,6 +245,19 @@ static int zmk_rgb_underglow_init(const struct device *_arg) {
     if (ext_power == NULL) {
         LOG_ERR("Unable to retrieve ext_power device: EXT_POWER");
     }
+#endif
+
+#if IS_ENABLED(CONFIG_ZMK_POWER_DOMAINS) && DT_HAS_CHOSEN(zmk_default_power_domain)
+
+    pm_device_runtime_enable(led_strip);
+    if (!pm_device_on_power_domain(led_strip)) {
+        int rc = pm_device_power_domain_add(led_strip,
+                                            DEVICE_DT_GET(DT_CHOSEN(zmk_default_power_domain)));
+        if (rc < 0) {
+            LOG_ERR("Failed to add the LED strip to the default power domain (0x%02x)", -rc);
+        }
+    }
+
 #endif
 
     state = (struct rgb_underglow_state){

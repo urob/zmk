@@ -6,7 +6,6 @@
 
 #include <nordic/nrf52840_qiaa.dtsi>
 #include "nice_nano-pinctrl.dtsi"
-#include "arduino_pro_micro_pins.dtsi"
 
 / {
     model = "nice!nano";
@@ -71,7 +70,7 @@
 &flash0 {
     /*
      * For more information, see:
-     * http://docs.zephyrproject.org/latest/devices/dts/flash_partitions.html
+     * http: //docs.zephyrproject.org/latest/devices/dts/flash_partitions.html
      */
     partitions {
         compatible = "fixed-partitions";

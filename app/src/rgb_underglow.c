@@ -7,6 +7,8 @@
 #include <zephyr/device.h>
 #include <zephyr/init.h>
 #include <zephyr/kernel.h>
+#include <zephyr/pm/device.h>
+#include <zephyr/pm/device_runtime.h>
 #include <zephyr/settings/settings.h>
 
 #include <math.h>
@@ -248,6 +250,19 @@ static int zmk_rgb_underglow_init(const struct device *_arg) {
     }
 #endif
 
+#if IS_ENABLED(CONFIG_ZMK_POWER_DOMAINS) && DT_HAS_CHOSEN(zmk_default_power_domain)
+
+    pm_device_runtime_enable(led_strip);
+    if (!pm_device_on_power_domain(led_strip)) {
+        int rc = pm_device_power_domain_add(led_strip,
+                                            DEVICE_DT_GET(DT_CHOSEN(zmk_default_power_domain)));
+        if (rc < 0) {
+            LOG_ERR("Failed to add the LED strip to the default power domain (0x%02x)", -rc);
+        }
+    }
+
+#endif
+
     state = (struct rgb_underglow_state){
         color : {
             h : CONFIG_ZMK_RGB_UNDERGLOW_HUE_START,
@@ -279,6 +294,7 @@ static int zmk_rgb_underglow_init(const struct device *_arg) {
 #endif
 
     if (state.on) {
+        pm_device_runtime_get(led_strip);
         k_timer_start(&underglow_tick, K_NO_WAIT, K_MSEC(50));
     }
 
@@ -303,8 +319,16 @@ int zmk_rgb_underglow_get_state(bool *on_off) {
 }
 
 int zmk_rgb_underglow_on() {
-    if (!led_strip)
+    if (!led_strip) {
         return -ENODEV;
+    }
+
+    // Newer PM device approach to ensuring powered on when used.
+    const int rc = pm_device_runtime_get(led_strip);
+    if (rc < 0) {
+        LOG_ERR("Failed to enable/get the PM device (%d)", rc);
+        return rc;
+    }
 
 #if IS_ENABLED(CONFIG_ZMK_RGB_UNDERGLOW_EXT_POWER)
     if (ext_power != NULL) {
@@ -343,6 +367,8 @@ int zmk_rgb_underglow_off() {
 
     k_timer_stop(&underglow_tick);
     state.on = false;
+
+    pm_device_runtime_put(led_strip);
 
     return zmk_rgb_underglow_save_state();
 }

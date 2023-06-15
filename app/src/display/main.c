@@ -7,6 +7,8 @@
 #include <zephyr/kernel.h>
 #include <zephyr/init.h>
 #include <zephyr/device.h>
+#include <zephyr/pm/device.h>
+#include <zephyr/pm/device_runtime.h>
 #include <zephyr/devicetree.h>
 
 #include <zephyr/logging/log.h>
@@ -66,7 +68,16 @@ void display_timer_cb() { k_work_submit_to_queue(zmk_display_work_q(), &display_
 K_TIMER_DEFINE(display_timer, display_timer_cb, NULL);
 
 void unblank_display_cb(struct k_work *work) {
+    int err = pm_device_runtime_get(display);
+    if (err < 0) {
+        LOG_ERR("Failed to get the display device PM (%d)", err);
+        return;
+    }
+
     display_blanking_off(display);
+
+    lv_obj_invalidate(lv_scr_act());
+
     k_timer_start(&display_timer, K_MSEC(TICK_MS), K_MSEC(TICK_MS));
 #if CONFIG_ZMK_DISPLAY_FULL_REFRESH_PERIOD > 0
     k_timer_start(&full_refresh_timer, K_SECONDS(CONFIG_ZMK_DISPLAY_FULL_REFRESH_PERIOD),
@@ -79,6 +90,7 @@ void unblank_display_cb(struct k_work *work) {
 void blank_display_cb(struct k_work *work) {
     k_timer_stop(&display_timer);
     display_blanking_on(display);
+    pm_device_runtime_put(display);
 #if CONFIG_ZMK_DISPLAY_FULL_REFRESH_PERIOD > 0
     k_timer_stop(&full_refresh_timer);
 #endif
@@ -124,6 +136,19 @@ void initialize_display(struct k_work *work) {
         LOG_ERR("Failed to find display device");
         return;
     }
+
+#if IS_ENABLED(CONFIG_ZMK_POWER_DOMAINS) && DT_HAS_CHOSEN(zmk_default_power_domain)
+
+    pm_device_runtime_enable(display);
+    if (!pm_device_on_power_domain(display)) {
+        int rc =
+            pm_device_power_domain_add(display, DEVICE_DT_GET(DT_CHOSEN(zmk_default_power_domain)));
+        if (rc < 0) {
+            LOG_ERR("Failed to add the display to the default power domain (0x%02x)", -rc);
+        }
+    }
+
+#endif
 
     initialized = true;
 

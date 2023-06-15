@@ -10,13 +10,15 @@
 / {
     chosen {
         zmk,battery = &vbatt;
+        zmk,default-power-domain = &core_power_domain;
     };
 
-    ext-power {
-        compatible = "zmk,ext-power-generic";
-        label = "EXT_POWER";
-        control-gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
-        init-delay-ms = <50>;
+    core_power_domain: core_power_domain {
+        compatible = "power-domain-gpio", "power-domain";
+        startup-delay-us = <50000>;
+        off-on-delay-us = <50000>;
+        enable-gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
+        zephyr,pm-device-runtime-auto;
     };
 
     vbatt: vbatt {
@@ -24,3 +26,5 @@
         label = "BATTERY";
     };
 };
+
+#include "arduino_pro_micro_pins.dtsi"

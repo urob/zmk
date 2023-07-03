@@ -6,8 +6,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
   projects:
     - name: zephyr
-      remote: zmkfirmware
-      revision: v3.2.0+zmk-fixes
+      remote: zephyrproject-rtos
+      revision: main
       clone-depth: 1
       import:
         name-blocklist:

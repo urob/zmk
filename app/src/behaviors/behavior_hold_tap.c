@@ -426,60 +426,57 @@ static bool is_first_other_key_released_trigger_key(struct active_hold_tap *hold
     return false;
 }
 
-
 static void decide_positional_hold(struct active_hold_tap *hold_tap) {
-    
+
     // Positional conditions is not active?
     if (!(hold_tap->config->hold_trigger_key_positions_len > 0)) {
         return; // apply flavour
     }
-    
-    // Pressed key is not set? 
+
+    // Pressed key is not set?
     if (hold_tap->position_of_first_other_key_pressed == -1) {
         return; // apply flavor
     }
-    
-    // Pressed key is included in positions? 
+
+    // Pressed key is included in positions?
     if (is_first_other_key_pressed_trigger_key(hold_tap)) {
         return; // apply flavor
     }
 
-    // Pressed key is not included in positions. 
+    // Pressed key is not included in positions.
     // We act on press?
     if (undecided_hold_tap->config->hold_trigger_on_release == false) {
         hold_tap->status = STATUS_TAP;
         return; // ignore flavor, set TAP
-    } 
-    
-    // We act on release. 
+    }
+
+    // We act on release.
     // Released key is not set?
-    if (hold_tap->position_of_first_other_key_released == -1)
-    {  
+    if (hold_tap->position_of_first_other_key_released == -1) {
         // Is current decision hold based on key pressed?
         if (hold_tap->status == STATUS_HOLD_INTERRUPT) {
-            
+
             // We can't decide yet if key which will be released:
             // - not in positions
             // - be released before timer
             // So we can't decide yet if we should overwrite decision to TAP.
             // We have to wait for key release.
-            
-            hold_tap->status = STATUS_UNDECIDED; 
+
+            hold_tap->status = STATUS_UNDECIDED;
             return; // remove flavor
         }
-        
+
         // There decision is decision:
         // - STATUS_HOLD_TIMER - tapping term reached, apply flavor
         // - STATUS_TAP - even if we set TAP later it will not change decision
         return; // apply flavor
     }
 
-
     // Released key is included in positions?
     if (is_first_other_key_released_trigger_key(hold_tap)) {
         return; // apply flavor
-    } 
-    
+    }
+
     // Released key is not included in positions.
     hold_tap->status = STATUS_TAP;
     return; // ignore flavor, set TAP

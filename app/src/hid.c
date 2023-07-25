@@ -350,16 +350,10 @@ void zmk_hid_mouse_scroll_update(int8_t x, int8_t y) {
 void zmk_hid_mouse_clear() { memset(&mouse_report.body, 0, sizeof(mouse_report.body)); }
 #endif /* IS_ENABLED(CONFIG_ZMK_MOUSE) */
 
-struct zmk_hid_keyboard_report *zmk_hid_get_keyboard_report() {
-    return &keyboard_report;
-}
+struct zmk_hid_keyboard_report *zmk_hid_get_keyboard_report() { return &keyboard_report; }
 
-struct zmk_hid_consumer_report *zmk_hid_get_consumer_report() {
-    return &consumer_report;
-}
+struct zmk_hid_consumer_report *zmk_hid_get_consumer_report() { return &consumer_report; }
 
 #if IS_ENABLED(CONFIG_ZMK_MOUSE)
-struct zmk_hid_mouse_report *zmk_hid_get_mouse_report() {
-    return &mouse_report;
-}
+struct zmk_hid_mouse_report *zmk_hid_get_mouse_report() { return &mouse_report; }
 #endif

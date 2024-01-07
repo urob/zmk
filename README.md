@@ -4,6 +4,17 @@ This is my personal ZMK fork containing various experimental features used in
 my [zmk-config](https://github.com/urob/zmk-config/). It is regularly rebased
 onto the latest upstream.
 
+Note that this branch adds mouse support using the [original mouse
+PR)(https://github.com/zmkfirmware/zmk/pull/778) by krikun. Note that due to
+some dependency conflicts between the original mouse PR and upstream ZMK, this
+main branch won't be updated until pointer movement/scrolling
+([#2027](https://github.com/zmkfirmware/zmk/pull/2027)) is added upstream.
+
+In the meantime, a newer version of this branch that is up to date with the
+latest upstream and is based on the new mouse API developed in
+[#2027](https://github.com/zmkfirmware/zmk/pull/2027) is available
+[here](https://github.com/urob/zmk/tree/main-with-native-mouse).
+
 Below is a list of features currently included in the `main` branch _on top of_
 the official ZMK master branch.
 

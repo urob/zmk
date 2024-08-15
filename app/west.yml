@@ -10,6 +10,8 @@ manifest:
       revision: v3.5.0+zmk-fixes
       clone-depth: 1
       import:
+        # Namespacing avoids conflicts when ZMK is imported as module
+        path-prefix: modules/zephyr
         name-blocklist:
           - ci-tools
           - hal_altera
@@ -38,4 +40,5 @@ manifest:
       path: modules/msgs/zmk-studio-messages
       remote: zmkfirmware
   self:
-    west-commands: scripts/west-commands.yml
+    # This works (only) when ZMK is loaded as module
+    west-commands: app/scripts/west-commands.yml

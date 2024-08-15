@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MIT
 
 west-commands:
-  - file: scripts/west_commands/test.py
+  - file: app/scripts/west_commands/test.py
     commands:
       - name: test
         class: Test
         help: run ZMK testsuite
-  - file: scripts/west_commands/metadata.py
+  - file: app/scripts/west_commands/metadata.py
     commands:
       - name: metadata
         class: Metadata

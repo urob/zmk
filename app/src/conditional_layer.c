@@ -49,12 +49,20 @@ static const struct conditional_layer_cfg CONDITIONAL_LAYER_CFGS[] = {
 static const int32_t NUM_CONDITIONAL_LAYER_CFGS =
     sizeof(CONDITIONAL_LAYER_CFGS) / sizeof(*CONDITIONAL_LAYER_CFGS);
 
+#if IS_ENABLED(CONFIG_ZMK_TRACK_MOMENTARY_LAYERS)
+static void conditional_layer_activate(int8_t layer, bool momentary) {
+#else
 static void conditional_layer_activate(int8_t layer) {
+#endif
     // This may trigger another event that could, in turn, activate additional then-layers. However,
     // the process will eventually terminate (at worst, when every layer is active).
     if (!zmk_keymap_layer_active(layer)) {
         LOG_DBG("layer %d", layer);
+#if IS_ENABLED(CONFIG_ZMK_TRACK_MOMENTARY_LAYERS)
+        zmk_keymap_layer_activate(layer, momentary);
+#else
         zmk_keymap_layer_activate(layer);
+#endif
     }
 }
 
@@ -84,6 +92,9 @@ static int layer_state_changed_listener(const zmk_event_t *ev) {
         int8_t max_then_layer = -1;
         uint32_t then_layers = 0;
         uint32_t then_layer_state = 0;
+#if IS_ENABLED(CONFIG_ZMK_TRACK_MOMENTARY_LAYERS)
+        uint32_t momentariness_state = 0;
+#endif
 
         conditional_layer_updates_needed = false;
 
@@ -100,13 +111,23 @@ static int layer_state_changed_listener(const zmk_event_t *ev) {
             // also trigger activation of another.
             if ((zmk_keymap_layer_state() & mask) == mask) {
                 then_layer_state |= BIT(cfg->then_layer);
+#if IS_ENABLED(CONFIG_ZMK_TRACK_MOMENTARY_LAYERS)
+                if (zmk_keymap_layers_any_momentary(mask)) {
+                    momentariness_state |= BIT(cfg->then_layer);
+                }
+#endif
             }
         }
 
         for (uint8_t layer = 0; layer <= max_then_layer; layer++) {
             if ((BIT(layer) & then_layers) != 0U) {
                 if ((BIT(layer) & then_layer_state) != 0U) {
+#if IS_ENABLED(CONFIG_ZMK_TRACK_MOMENTARY_LAYERS)
+                    bool momentary = BIT(layer) & momentariness_state;
+                    conditional_layer_activate(layer, momentary);
+#else
                     conditional_layer_activate(layer);
+#endif
                 } else {
                     conditional_layer_deactivate(layer);
                 }

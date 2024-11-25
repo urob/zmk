@@ -1,30 +1,11 @@
 # ZMK Firmware: Personal fork
 
 This is my personal ZMK fork containing various experimental features used in
-my [zmk-config](https://github.com/urob/zmk-config/). This branch is up to date
-with the latest ZMK upgrade to Zephyr 3.5. A legacy version
-of this branch for Zephyr 3.2 can be found [here](https://github.com/urob/zmk/tree/main-3.2).
+my [zmk-config](https://github.com/urob/zmk-config/). 
 
-**Note**: I am in the process of moving to a modular ZMK setup and no longer use this branch myself.
-Instead, I am building against [going-modular](https://github.com/urob/zmk/tree/going-modular),
-which closely tracks upstream ZMK master (as of today there are only two additional commits on top
-of master), adding all other features via ZMK modules.
-
----
-
-Note that the branch now includes the official mouse PR #2027. If you are updating from an earlier
-version with the original mouse PR #778, then the following
-adjustments are necessary in your `zmk-config`:
-
-- `&mwh` --> `&msc`
-- `MOVE_VERT` --> `MOVE_Y` or `MOVE_LEFT`/`MOVE_RIGHT`
-- `MOVE_HOR` --> `MOVE_X` or `MOVE_UP`/`MOVE_DOWN`
-- `SCROLL_VERT` --> `MOVE_Y` or `SCRL_UP`/`SCRL_DOWN`
-- `SCROLL_HOR` --> `MOVE_X` or `SCRL_LEFT`/`SCRL_RIGHT`
-
-E.g., this is my current [mouse
-configuration](https://github.com/urob/zmk-config/blob/main/config/mouse.dtsi)
-using the new api.
+**Important**: I have moved to a modular ZMK setup and no longer use this branch myself. I will keep
+a copy of this branch available as **[old-main](https://github.com/urob/zmk/tree/main-3.5)** but I
+will no longer maintain it. 
 
 ---
 

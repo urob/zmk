@@ -4,9 +4,12 @@ manifest:
       url-base: https://github.com/zephyrproject-rtos
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: urob
+      url-base: https://github.com/urob
   projects:
     - name: zephyr
-      remote: zmkfirmware
+      # Use fork of ZMK's Zephyr version that cherry-picks the child node fix from v3.7.
+      remote: urob
       revision: v3.5.0+zmk-fixes
       clone-depth: 1
       import:

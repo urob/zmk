@@ -1,11 +1,11 @@
 /*
-*
-* Copyright (c) 2021 Darryl deHaan
-* SPDX-License-Identifier: MIT
-*
-*/
+ *
+ * Copyright (c) 2021 Darryl deHaan
+ * SPDX-License-Identifier: MIT
+ *
+ */
 
-/{
+/ {
     chosen {
         zephyr,display = &epd;
         zmk,battery = &fuelgauge;
@@ -16,25 +16,22 @@
         wakeup-source;
 
         diode-direction = "col2row";
-        row-gpios
-            = <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpio1  0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpio1  3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpio1  1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            ;
+        row-gpios = <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+                    <&gpio1 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+                    <&gpio1 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+                    <&gpio1 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
 
-        col-gpios
-            = <&gpio0 19 GPIO_ACTIVE_HIGH>
-            , <&gpio0 21 GPIO_ACTIVE_HIGH>
-            , <&gpio0 23 GPIO_ACTIVE_HIGH>
-            , <&gpio0 12 GPIO_ACTIVE_HIGH>
-            , <&gpio1  9 GPIO_ACTIVE_HIGH>
-            , <&gpio0  7 GPIO_ACTIVE_HIGH>
-            ;
+        col-gpios = <&gpio0 19 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 21 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 23 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 12 GPIO_ACTIVE_HIGH>,
+                    <&gpio1 9 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 7 GPIO_ACTIVE_HIGH>;
     };
 
     leds {
         compatible = "gpio-leds";
+
         blue_led: led_0 {
             gpios = <&gpio0 26 GPIO_ACTIVE_HIGH>;
         };
@@ -53,16 +50,16 @@
     spi2_default: spi2_default {
         group1 {
             psels = <NRF_PSEL(SPIM_SCK, 0, 20)>,
-                <NRF_PSEL(SPIM_MOSI, 0, 24)>,
-                <NRF_PSEL(SPIM_MISO, 0, 27)>;
+                    <NRF_PSEL(SPIM_MOSI, 0, 24)>,
+                    <NRF_PSEL(SPIM_MISO, 0, 27)>;
         };
     };
 
     spi2_sleep: spi2_sleep {
         group1 {
             psels = <NRF_PSEL(SPIM_SCK, 0, 20)>,
-                <NRF_PSEL(SPIM_MOSI, 0, 24)>,
-                <NRF_PSEL(SPIM_MISO, 0, 27)>;
+                    <NRF_PSEL(SPIM_MOSI, 0, 24)>,
+                    <NRF_PSEL(SPIM_MISO, 0, 27)>;
             low-power-enable;
         };
     };
@@ -70,14 +67,14 @@
     i2c0_default: i2c0_default {
         group1 {
             psels = <NRF_PSEL(TWIM_SDA, 0, 16)>,
-                <NRF_PSEL(TWIM_SCL, 0, 13)>;
+                    <NRF_PSEL(TWIM_SCL, 0, 13)>;
         };
     };
 
     i2c0_sleep: i2c0_sleep {
         group1 {
             psels = <NRF_PSEL(TWIM_SDA, 0, 16)>,
-                <NRF_PSEL(TWIM_SCL, 0, 13)>;
+                    <NRF_PSEL(TWIM_SCL, 0, 13)>;
             low-power-enable;
         };
     };
@@ -112,7 +109,7 @@
 
     epd: il0323@0 {
         compatible = "gooddisplay,il0323";
-        reg =  <0>;
+        reg = <0>;
         width = <80>;
         height = <128>;
         spi-max-frequency = <4000000>;

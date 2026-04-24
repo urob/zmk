@@ -8,6 +8,7 @@
 / {
     combos {
         compatible = "zmk,combos";
+
         combo_one {
             timeout-ms = <TIMEOUT>;
             key-positions = <0 1>;
@@ -33,45 +34,40 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-                &kp A &kp B
-                &kp C &tog 1
-            >;
+            bindings = <&kp A &kp B
+                        &kp C &tog 1>;
         };
 
         filtered_layer {
-            bindings = <
-                &kp A &kp B
-                &kp C &tog 0
-            >;
+            bindings = <&kp A &kp B
+                        &kp C &tog 0>;
         };
     };
 };
 
 &kscan {
     events = <
-        /* Combo One */
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_PRESS(0,1,10)
-        ZMK_MOCK_RELEASE(0,0,10)
-        ZMK_MOCK_RELEASE(0,1,10)
-        /* Combo Three */
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_PRESS(1,1,10)
-        ZMK_MOCK_RELEASE(0,0,10)
-        ZMK_MOCK_RELEASE(1,1,10)
-        /* Toggle Layer */
-        ZMK_MOCK_PRESS(1,1,10)
-        ZMK_MOCK_RELEASE(1,1,10)
-        /* Combo Two */
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_PRESS(0,1,10)
-        ZMK_MOCK_RELEASE(0,0,10)
-        ZMK_MOCK_RELEASE(0,1,10)
-        /* Combo Three */
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_PRESS(1,1,10)
-        ZMK_MOCK_RELEASE(0,0,10)
-        ZMK_MOCK_RELEASE(1,1,10)
-    >;
+              /* Combo One */
+              ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_PRESS(0,1,10)
+              ZMK_MOCK_RELEASE(0,0,10)
+              ZMK_MOCK_RELEASE(0,1,10)
+              /* Combo Three */
+              ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_PRESS(1,1,10)
+              ZMK_MOCK_RELEASE(0,0,10)
+              ZMK_MOCK_RELEASE(1,1,10)
+              /* Toggle Layer */
+              ZMK_MOCK_PRESS(1,1,10)
+              ZMK_MOCK_RELEASE(1,1,10)
+              /* Combo Two */
+              ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_PRESS(0,1,10)
+              ZMK_MOCK_RELEASE(0,0,10)
+              ZMK_MOCK_RELEASE(0,1,10)
+              /* Combo Three */
+              ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_PRESS(1,1,10)
+              ZMK_MOCK_RELEASE(0,0,10)
+              ZMK_MOCK_RELEASE(1,1,10)>;
 };

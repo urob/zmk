@@ -7,10 +7,10 @@
 };
 
 /*
-This test fails if the order of event handlers for hold-taps
-and combos is wrong. Hold-taps need to process key position events
-first so the decision to hold or tap can be made.
-*/
+ * This test fails if the order of event handlers for hold-taps
+ * and combos is wrong. Hold-taps need to process key position events
+ * first so the decision to hold or tap can be made.
+ */
 / {
     combos {
         compatible = "zmk,combos";
@@ -26,21 +26,17 @@ first so the decision to hold or tap can be made.
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-                &mt LEFT_CONTROL A &kp B
-                &kp C &none
-            >;
+            bindings = <&mt LEFT_CONTROL A &kp B
+                        &kp C &none>;
         };
     };
 };
 
 &kscan {
-    events = <
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_PRESS(0,1,10)
-        ZMK_MOCK_PRESS(0,2,10)
-        ZMK_MOCK_RELEASE(0,0,10)
-        ZMK_MOCK_RELEASE(0,1,10)
-        ZMK_MOCK_RELEASE(0,2,10)
-    >;
+    events = <ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_PRESS(0,1,10)
+              ZMK_MOCK_PRESS(0,2,10)
+              ZMK_MOCK_RELEASE(0,0,10)
+              ZMK_MOCK_RELEASE(0,1,10)
+              ZMK_MOCK_RELEASE(0,2,10)>;
 };

@@ -21,21 +21,17 @@
 // };
 
 / {
-
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             display-name = "Default Layer";
-            bindings = <
-                &kp A &bl BL_TOG
-                &rgb_ug RGB_EFF &bt BT_CLR
+            bindings = <&kp A &bl BL_TOG
+                        &rgb_ug RGB_EFF &bt BT_CLR
+                        &kp C &kp D
+                        &kp E &kp F>;
 
-                &kp C &kp D
-                &kp E &kp F
-           >;
-
-           sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
     };
 };

@@ -1,4 +1,3 @@
-
 #include <dt-bindings/zmk/kscan_mock.h>
 
 #include "shared.dtsi"

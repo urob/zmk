@@ -1,4 +1,3 @@
-
 #include <dt-bindings/zmk/input_transform.h>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 
@@ -17,20 +16,15 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-                &msc SCRL_LEFT &msc SCRL_UP
-                &none &none
-            >;
+            bindings = <&msc SCRL_LEFT &msc SCRL_UP
+                        &none &none>;
         };
     };
 };
 
-
 &kscan {
-    events = <
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_PRESS(0,1,500)
-        ZMK_MOCK_RELEASE(0,0,10)
-        ZMK_MOCK_RELEASE(0,1,10)
-    >;
+    events = <ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_PRESS(0,1,500)
+              ZMK_MOCK_RELEASE(0,0,10)
+              ZMK_MOCK_RELEASE(0,1,10)>;
 };

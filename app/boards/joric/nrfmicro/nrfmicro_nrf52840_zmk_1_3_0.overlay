@@ -27,4 +27,3 @@
 &adc {
     status = "okay";
 };
-

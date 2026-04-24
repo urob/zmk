@@ -11,6 +11,7 @@
 #if ZMK_BEHAVIOR_OMIT(SOFT_OFF)
         /omit-if-no-ref/
 #endif
+
         soft_off: z_so_off {
             compatible = "zmk,behavior-soft-off";
             #binding-cells = <0>;

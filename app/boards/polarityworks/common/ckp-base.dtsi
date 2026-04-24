@@ -22,7 +22,6 @@ zephyr_udc0: &usbd {
     regulator-initial-mode = <NRF5X_REG_MODE_DCDC>;
 };
 
-
 &flash0 {
     /*
      * For more information, see:
@@ -36,6 +35,7 @@ zephyr_udc0: &usbd {
         sd_partition: partition@0 {
             reg = <0x00000000 0x00026000>;
         };
+
         code_partition: partition@26000 {
             reg = <0x00026000 0x000c6000>;
         };
@@ -58,4 +58,3 @@ zephyr_udc0: &usbd {
         };
     };
 };
-

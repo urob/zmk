@@ -4,13 +4,14 @@
  * SPDX-License-Identifier: MIT
  */
 
- #include <dt-bindings/zmk/behaviors.h>
+#include <dt-bindings/zmk/behaviors.h>
 
 / {
     behaviors {
 #if ZMK_BEHAVIOR_OMIT(MKP)
         /omit-if-no-ref/
 #endif
+
         mkp: mouse_key_press {
             compatible = "zmk,behavior-mouse-key-press";
             #binding-cells = <1>;

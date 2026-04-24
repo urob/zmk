@@ -5,10 +5,12 @@
 / {
     conditional_layers {
         compatible = "zmk,conditional-layers";
+
         conditional_layer_1 {
             if-layers = <1 2>;
             then-layer = <3>;
         };
+
         conditional_layer_2 {
             if-layers = <1 3>;
             then-layer = <4>;
@@ -17,46 +19,39 @@
 
     keymap {
         compatible = "zmk,keymap";
+
         default_layer {
-            bindings = <
-                &kp A &kp B
-                &mo 1 &mo 2
-            >;
+            bindings = <&kp A &kp B
+                        &mo 1 &mo 2>;
         };
+
         layer_1 {
-            bindings = <
-                &kp C &kp D
-                &trans &trans
-            >;
+            bindings = <&kp C &kp D
+                        &trans &trans>;
         };
+
         layer_2 {
-            bindings = <
-                &kp E &kp F
-                &trans &trans
-            >;
+            bindings = <&kp E &kp F
+                        &trans &trans>;
         };
+
         layer_3 {
-            bindings = <
-                &kp G &kp H
-                &trans &trans
-            >;
+            bindings = <&kp G &kp H
+                        &trans &trans>;
         };
+
         layer_4 {
-            bindings = <
-                &kp I &kp J
-                &trans &trans
-            >;
+            bindings = <&kp I &kp J
+                        &trans &trans>;
         };
     };
 };
 
 &kscan {
-    events = <
-        ZMK_MOCK_PRESS(1,0,10)
-        ZMK_MOCK_PRESS(1,1,10)
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_RELEASE(0,0,10)
-        ZMK_MOCK_RELEASE(1,1,10)
-        ZMK_MOCK_RELEASE(1,0,10)
-    >;
+    events = <ZMK_MOCK_PRESS(1,0,10)
+              ZMK_MOCK_PRESS(1,1,10)
+              ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_RELEASE(0,0,10)
+              ZMK_MOCK_RELEASE(1,1,10)
+              ZMK_MOCK_RELEASE(1,0,10)>;
 };

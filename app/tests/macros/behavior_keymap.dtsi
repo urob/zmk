@@ -51,17 +51,13 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-                &abc_macro &mo 1
-                &hold_shift_macro &custom_timing>;
+            bindings = <&abc_macro &mo 1
+                        &hold_shift_macro &custom_timing>;
         };
 
         extra_layer {
-            bindings = <
-                &dual_sequence_macro &trans
-                &kp TAB &none>;
-
+            bindings = <&dual_sequence_macro &trans
+                        &kp TAB &none>;
         };
-
     };
 };

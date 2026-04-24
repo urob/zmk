@@ -9,12 +9,10 @@
 #include <../boards/mechwild/pillbug/pillbug.dts>
 #include <common/nordic/nrf52840_uf2_boot_mode.dtsi>
 
-
 / {
     chosen {
         zmk,battery = &vbatt;
     };
-
 
     // Node name must match original "EXT_POWER" label to preserve user settings.
     EXT_POWER {

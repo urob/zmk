@@ -11,6 +11,7 @@
 #if ZMK_BEHAVIOR_OMIT(LT)
         /omit-if-no-ref/
 #endif
+
         lt: layer_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;

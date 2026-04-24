@@ -1,4 +1,3 @@
-
 &gpregret1 {
     adafruit_boot_retention: retention@0 {
         compatible = "zephyr,retention";

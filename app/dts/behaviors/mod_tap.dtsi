@@ -11,6 +11,7 @@
 #if ZMK_BEHAVIOR_OMIT(MT)
         /omit-if-no-ref/
 #endif
+
         mt: mod_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;

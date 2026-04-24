@@ -11,6 +11,7 @@
 #if ZMK_BEHAVIOR_OMIT(BT)
         /omit-if-no-ref/
 #endif
+
         bt: bluetooth {
             compatible = "zmk,behavior-bluetooth";
             #binding-cells = <2>;

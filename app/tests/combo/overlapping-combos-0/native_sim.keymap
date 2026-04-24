@@ -3,11 +3,11 @@
 #include <dt-bindings/zmk/kscan_mock.h>
 
 /*
-    combo 0 timeout inf
-    combo 01 timeout inf
-    combo 0123 timeout inf
-    press 012 in any combination, release any of those keys
-    expected: combo 012 on key-release
+ * combo 0 timeout inf
+ * combo 01 timeout inf
+ * combo 0123 timeout inf
+ * press 012 in any combination, release any of those keys
+ * expected: combo 012 on key-release
  */
 
 /* it is useful to set timeout to a large value when attaching a debugger. */
@@ -16,6 +16,7 @@
 / {
     combos {
         compatible = "zmk,combos";
+
         combo_one {
             timeout-ms = <TIMEOUT>;
             key-positions = <0 1 2>;
@@ -39,78 +40,68 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-                &kp A &kp B
-                &kp C &none
-            >;
+            bindings = <&kp A &kp B
+                        &kp C &none>;
         };
     };
 };
+
 &kscan {
     events = <
-        /* all permutations of combo one press, combo triggered by release */
-        /* while debugging these, you may want to set the release_timer to a high number */
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_PRESS(0,1,10)
-        ZMK_MOCK_PRESS(0,2,10)
-        ZMK_MOCK_RELEASE(0,0,10)
-        ZMK_MOCK_RELEASE(0,1,10)
-        ZMK_MOCK_RELEASE(0,2,10)
+              /* all permutations of combo one press, combo triggered by release */
+              /* while debugging these, you may want to set the release_timer to a high number */
+              ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_PRESS(0,1,10)
+              ZMK_MOCK_PRESS(0,2,10)
+              ZMK_MOCK_RELEASE(0,0,10)
+              ZMK_MOCK_RELEASE(0,1,10)
+              ZMK_MOCK_RELEASE(0,2,10)
+              ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_PRESS(0,2,10)
+              ZMK_MOCK_PRESS(0,1,10)
+              ZMK_MOCK_RELEASE(0,0,10)
+              ZMK_MOCK_RELEASE(0,2,10)
+              ZMK_MOCK_RELEASE(0,1,10)
+              ZMK_MOCK_PRESS(0,1,10)
+              ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_PRESS(0,2,10)
+              ZMK_MOCK_RELEASE(0,1,10)
+              ZMK_MOCK_RELEASE(0,0,10)
+              ZMK_MOCK_RELEASE(0,2,10)
+              ZMK_MOCK_PRESS(0,1,10)
+              ZMK_MOCK_PRESS(0,2,10)
+              ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_RELEASE(0,1,10)
+              ZMK_MOCK_RELEASE(0,2,10)
+              ZMK_MOCK_RELEASE(0,0,10)
+              ZMK_MOCK_PRESS(0,2,10)
+              ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_PRESS(0,1,10)
+              ZMK_MOCK_RELEASE(0,2,10)
+              ZMK_MOCK_RELEASE(0,0,10)
+              ZMK_MOCK_RELEASE(0,1,10)
+              ZMK_MOCK_PRESS(0,2,10)
+              ZMK_MOCK_PRESS(0,1,10)
+              ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_RELEASE(0,2,10)
+              ZMK_MOCK_RELEASE(0,1,10)
+              ZMK_MOCK_RELEASE(0,0,10)
 
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_PRESS(0,2,10)
-        ZMK_MOCK_PRESS(0,1,10)
-        ZMK_MOCK_RELEASE(0,0,10)
-        ZMK_MOCK_RELEASE(0,2,10)
-        ZMK_MOCK_RELEASE(0,1,10)
-
-        ZMK_MOCK_PRESS(0,1,10)
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_PRESS(0,2,10)
-        ZMK_MOCK_RELEASE(0,1,10)
-        ZMK_MOCK_RELEASE(0,0,10)
-        ZMK_MOCK_RELEASE(0,2,10)
-
-        ZMK_MOCK_PRESS(0,1,10)
-        ZMK_MOCK_PRESS(0,2,10)
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_RELEASE(0,1,10)
-        ZMK_MOCK_RELEASE(0,2,10)
-        ZMK_MOCK_RELEASE(0,0,10)
-
-        ZMK_MOCK_PRESS(0,2,10)
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_PRESS(0,1,10)
-        ZMK_MOCK_RELEASE(0,2,10)
-        ZMK_MOCK_RELEASE(0,0,10)
-        ZMK_MOCK_RELEASE(0,1,10)
-
-        ZMK_MOCK_PRESS(0,2,10)
-        ZMK_MOCK_PRESS(0,1,10)
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_RELEASE(0,2,10)
-        ZMK_MOCK_RELEASE(0,1,10)
-        ZMK_MOCK_RELEASE(0,0,10)
-
-        /* all permutations of combo two press and release, combo triggered by release */
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_PRESS(0,2,10)
-        ZMK_MOCK_RELEASE(0,0,10)
-        ZMK_MOCK_RELEASE(0,2,10)
-
-        ZMK_MOCK_PRESS(0,2,10)
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_RELEASE(0,2,10)
-        ZMK_MOCK_RELEASE(0,0,10)
-
-        ZMK_MOCK_PRESS(0,2,10)
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_RELEASE(0,0,10)
-        ZMK_MOCK_RELEASE(0,2,10)
-
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_PRESS(0,2,10)
-        ZMK_MOCK_RELEASE(0,2,10)
-        ZMK_MOCK_RELEASE(0,0,10)
-    >;
+              /* all permutations of combo two press and release, combo triggered by release */
+              ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_PRESS(0,2,10)
+              ZMK_MOCK_RELEASE(0,0,10)
+              ZMK_MOCK_RELEASE(0,2,10)
+              ZMK_MOCK_PRESS(0,2,10)
+              ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_RELEASE(0,2,10)
+              ZMK_MOCK_RELEASE(0,0,10)
+              ZMK_MOCK_PRESS(0,2,10)
+              ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_RELEASE(0,0,10)
+              ZMK_MOCK_RELEASE(0,2,10)
+              ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_PRESS(0,2,10)
+              ZMK_MOCK_RELEASE(0,2,10)
+              ZMK_MOCK_RELEASE(0,0,10)>;
 };

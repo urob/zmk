@@ -8,14 +8,14 @@
     /delete-property/ exit-after;
     events = <>;
 };
+
 / {
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-            &kp A &kp B
-            &bt BT_SEL 0 &bt BT_CLR>;
+            bindings = <&kp A &kp B
+                        &bt BT_SEL 0 &bt BT_CLR>;
 
             sensor-bindings = <&inc_dec_kp A B>;
         };

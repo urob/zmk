@@ -11,6 +11,7 @@
 #if ZMK_BEHAVIOR_OMIT(TRANS)
         /omit-if-no-ref/
 #endif
+
         trans: transparent {
             compatible = "zmk,behavior-transparent";
             #binding-cells = <0>;

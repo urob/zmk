@@ -1,8 +1,8 @@
 /*
-* Copyright (c) 2022 The ZMK Contributors
-*
-* SPDX-License-Identifier: MIT
-*/
+ * Copyright (c) 2022 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
 
 #include <dt-bindings/led/led.h>
 #include <dt-bindings/zmk/matrix_transform.h>
@@ -35,33 +35,29 @@
 
         diode-direction = "col2row";
 
-        col-gpios
-            = <&gpio1 11 GPIO_ACTIVE_HIGH>
-            , <&gpio1 10 GPIO_ACTIVE_HIGH>
-            , <&gpio1 13 GPIO_ACTIVE_HIGH>
-            , <&gpio1 15 GPIO_ACTIVE_HIGH>
-            , <&gpio0 3 GPIO_ACTIVE_HIGH>
-            , <&gpio0 2 GPIO_ACTIVE_HIGH>
-            , <&gpio0 28 GPIO_ACTIVE_HIGH>
-            , <&gpio0 29 GPIO_ACTIVE_HIGH>
-            , <&gpio0 30 GPIO_ACTIVE_HIGH>
-            , <&gpio0 31 GPIO_ACTIVE_HIGH>
-            , <&gpio0 5 GPIO_ACTIVE_HIGH>
-            , <&gpio0 7 GPIO_ACTIVE_HIGH>
-            , <&gpio1 9 GPIO_ACTIVE_HIGH>
-            , <&gpio0 12 GPIO_ACTIVE_HIGH>
-            , <&gpio0 23 GPIO_ACTIVE_HIGH>
-            , <&gpio1 6 GPIO_ACTIVE_HIGH>
-            ;
+        col-gpios = <&gpio1 11 GPIO_ACTIVE_HIGH>,
+                    <&gpio1 10 GPIO_ACTIVE_HIGH>,
+                    <&gpio1 13 GPIO_ACTIVE_HIGH>,
+                    <&gpio1 15 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 3 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 2 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 28 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 29 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 30 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 31 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 5 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 7 GPIO_ACTIVE_HIGH>,
+                    <&gpio1 9 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 12 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 23 GPIO_ACTIVE_HIGH>,
+                    <&gpio1 6 GPIO_ACTIVE_HIGH>;
 
-        row-gpios
-            = <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpio1 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpio1 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpio1 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpio1 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpio1 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            ;
+        row-gpios = <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+                    <&gpio1 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+                    <&gpio1 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+                    <&gpio1 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+                    <&gpio1 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+                    <&gpio1 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
     };
 
     // Node name must match original "EXT_POWER" label to preserve user settings.
@@ -96,6 +92,7 @@
 
     backlight: pwmleds {
         compatible = "pwm-leds";
+
         pwm_led_0 {
             pwms = <&pwm0 0 10000 PWM_POLARITY_NORMAL>;
         };
@@ -103,6 +100,7 @@
 
     leds {
         compatible = "gpio-leds";
+
         blue_led: led_0 {
             gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
         };
@@ -147,7 +145,7 @@
         spi-one-frame = <0x70>;
         spi-zero-frame = <0x40>;
         color-mapping = <LED_COLOR_ID_GREEN
-                   LED_COLOR_ID_RED
-                   LED_COLOR_ID_BLUE>;
+                         LED_COLOR_ID_RED
+                         LED_COLOR_ID_BLUE>;
     };
 };

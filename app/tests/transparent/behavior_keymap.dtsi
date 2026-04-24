@@ -7,15 +7,13 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-                &trans &mo 1
-                &kp A &none>;
+            bindings = <&trans &mo 1
+                        &kp A &none>;
         };
 
         lower_layer {
-            bindings = <
-                &trans &trans
-                &trans  &kp A>;
+            bindings = <&trans &trans
+                        &trans &kp A>;
         };
     };
 };

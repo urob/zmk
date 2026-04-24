@@ -1,8 +1,7 @@
 #include "../behavior_keymap.dtsi"
 
 &kscan {
-    events = < ZMK_MOCK_PRESS(1,1,1000)
-    >;
+    events = <ZMK_MOCK_PRESS(1,1,1000)>;
 };
 
 &mock_encoder {

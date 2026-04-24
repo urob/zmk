@@ -24,6 +24,7 @@
 
     leds {
         compatible = "gpio-leds";
+
         led: led_0 {
             gpios = <&gpioc 13 GPIO_ACTIVE_HIGH>;
         };

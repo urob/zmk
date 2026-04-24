@@ -5,6 +5,7 @@
 / {
     conditional_layers {
         compatible = "zmk,conditional-layers";
+
         tri_layer {
             if-layers = <1 2>;
             then-layer = <3>;
@@ -13,52 +14,46 @@
 
     keymap {
         compatible = "zmk,keymap";
+
         default_layer {
-            bindings = <
-                &kp A &mo 3
-                &tog 1 &tog 2
-            >;
+            bindings = <&kp A &mo 3
+                        &tog 1 &tog 2>;
         };
+
         layer_1 {
-            bindings = <
-                &kp B &trans
-                &trans &trans
-            >;
+            bindings = <&kp B &trans
+                        &trans &trans>;
         };
+
         layer_2 {
-            bindings = <
-                &kp C &trans
-                &trans &trans
-            >;
+            bindings = <&kp C &trans
+                        &trans &trans>;
         };
+
         layer_3 {
-            bindings = <
-                &kp D &trans
-                &trans &trans
-            >;
+            bindings = <&kp D &trans
+                        &trans &trans>;
         };
     };
 };
 
 &kscan {
-    events = <
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_RELEASE(0,0,10)
-        ZMK_MOCK_PRESS(1,0,10)
-        ZMK_MOCK_RELEASE(1,0,10)
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_RELEASE(0,0,10)
-        ZMK_MOCK_PRESS(1,1,10)
-        ZMK_MOCK_RELEASE(1,1,10)
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_RELEASE(0,0,10)
-        ZMK_MOCK_PRESS(0,1,10)
-        ZMK_MOCK_RELEASE(0,1,10)
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_RELEASE(0,0,10)
-        ZMK_MOCK_PRESS(1,0,10)
-        ZMK_MOCK_RELEASE(1,0,10)
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_RELEASE(0,0,10)
-    >;
+    events = <ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_RELEASE(0,0,10)
+              ZMK_MOCK_PRESS(1,0,10)
+              ZMK_MOCK_RELEASE(1,0,10)
+              ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_RELEASE(0,0,10)
+              ZMK_MOCK_PRESS(1,1,10)
+              ZMK_MOCK_RELEASE(1,1,10)
+              ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_RELEASE(0,0,10)
+              ZMK_MOCK_PRESS(0,1,10)
+              ZMK_MOCK_RELEASE(0,1,10)
+              ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_RELEASE(0,0,10)
+              ZMK_MOCK_PRESS(1,0,10)
+              ZMK_MOCK_RELEASE(1,0,10)
+              ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_RELEASE(0,0,10)>;
 };

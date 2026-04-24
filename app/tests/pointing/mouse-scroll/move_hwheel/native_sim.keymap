@@ -9,20 +9,15 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-                &msc SCRL_RIGHT &msc SCRL_LEFT
-                &none &none
-            >;
+            bindings = <&msc SCRL_RIGHT &msc SCRL_LEFT
+                        &none &none>;
         };
     };
 };
 
-
 &kscan {
-    events = <
-        ZMK_MOCK_PRESS(0,0,500)
-        ZMK_MOCK_RELEASE(0,0,10)
-        ZMK_MOCK_PRESS(0,1,500)
-        ZMK_MOCK_RELEASE(0,1,10)
-    >;
+    events = <ZMK_MOCK_PRESS(0,0,500)
+              ZMK_MOCK_RELEASE(0,0,10)
+              ZMK_MOCK_PRESS(0,1,500)
+              ZMK_MOCK_RELEASE(0,1,10)>;
 };

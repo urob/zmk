@@ -1,4 +1,3 @@
-
 #include <dt-bindings/zmk/kscan_mock.h>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 
@@ -16,13 +15,11 @@
         status = "okay";
         event-startup-delay = <4000>;
         event-period = <2000>;
-        events
-            = <INPUT_EV_REL INPUT_REL_X 100 0>
-            , <INPUT_EV_REL INPUT_REL_Y 100 1>
-            , <INPUT_EV_REL INPUT_REL_X 40 0>
-            , <INPUT_EV_REL INPUT_REL_Y 50 1>
-            , <INPUT_EV_KEY INPUT_BTN_1 1 1>
-            ;
+        events = <INPUT_EV_REL INPUT_REL_X 100 0>,
+                 <INPUT_EV_REL INPUT_REL_Y 100 1>,
+                 <INPUT_EV_REL INPUT_REL_X 40 0>,
+                 <INPUT_EV_REL INPUT_REL_Y 50 1>,
+                 <INPUT_EV_KEY INPUT_BTN_1 1 1>;
         exit-after;
     };
 };

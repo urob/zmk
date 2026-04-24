@@ -4,12 +4,11 @@
 
 &kscan {
     events = <
-        /* Shift + tap &mod_morph --> expect B (but get Shift + B) */
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_PRESS(0,1,10)
-        ZMK_MOCK_RELEASE(0,1,10)
-        ZMK_MOCK_RELEASE(0,0,10)
-    >;
+              /* Shift + tap &mod_morph --> expect B (but get Shift + B) */
+              ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_PRESS(0,1,10)
+              ZMK_MOCK_RELEASE(0,1,10)
+              ZMK_MOCK_RELEASE(0,0,10)>;
 };
 
 / {
@@ -18,26 +17,21 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp A>, <&lt 1 B>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            mods = <(MOD_LSFT | MOD_RSFT)>;
         };
-
     };
 
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-                &kp LEFT_SHIFT &mod_morph
-                &kp C &none
-            >;
+            bindings = <&kp LEFT_SHIFT &mod_morph
+                        &kp C &none>;
         };
 
         second_layer {
-            bindings = <
-                &trans &trans
-                &kp D &trans
-            >;
+            bindings = <&trans &trans
+                        &kp D &trans>;
         };
     };
 };

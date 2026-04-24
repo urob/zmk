@@ -6,7 +6,8 @@
 #include <dt-bindings/zmk/input_transform.h>
 
 &msc_input_listener {
-    input-processors = <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+    input-processors =
+                       <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
 };
 
 / {
@@ -14,20 +15,15 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-                &msc SCRL_LEFT &msc SCRL_UP
-                &none &none
-            >;
+            bindings = <&msc SCRL_LEFT &msc SCRL_UP
+                        &none &none>;
         };
     };
 };
 
-
 &kscan {
-    events = <
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_PRESS(0,1,500)
-        ZMK_MOCK_RELEASE(0,0,10)
-        ZMK_MOCK_RELEASE(0,1,10)
-    >;
+    events = <ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_PRESS(0,1,500)
+              ZMK_MOCK_RELEASE(0,0,10)
+              ZMK_MOCK_RELEASE(0,1,10)>;
 };

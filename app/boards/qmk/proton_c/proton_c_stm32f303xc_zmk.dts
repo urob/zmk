@@ -6,4 +6,3 @@
 
 /dts-v1/;
 #include <../boards/qmk/proton_c/proton_c.dts>
-

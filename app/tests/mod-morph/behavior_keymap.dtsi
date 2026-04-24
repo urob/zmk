@@ -4,7 +4,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp A>, <&kp B>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            mods = <(MOD_LSFT | MOD_RSFT)>;
         };
     };
 
@@ -12,10 +12,8 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-                &kp LEFT_ALT &mod_morph
-                &kp LEFT_SHIFT &kp RIGHT_SHIFT
-            >;
+            bindings = <&kp LEFT_ALT &mod_morph
+                        &kp LEFT_SHIFT &kp RIGHT_SHIFT>;
         };
     };
 };

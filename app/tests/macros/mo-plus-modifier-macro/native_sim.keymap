@@ -25,21 +25,18 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-                &mo_mod_macro &kp A
-                &kp B &kp C>;
+            bindings = <&mo_mod_macro &kp A
+                        &kp B &kp C>;
         };
 
         extra_layer {
-            bindings = <
-                &kp D &kp E
-                &kp F &kp G>;
-
+            bindings = <&kp D &kp E
+                        &kp F &kp G>;
         };
-
     };
 };
 
 &kscan {
-    events = <ZMK_MOCK_PRESS(0,0,20) ZMK_MOCK_PRESS(0,1,10) ZMK_MOCK_RELEASE(0,1,10) ZMK_MOCK_RELEASE(0,0,1000)>;
+    events =
+             <ZMK_MOCK_PRESS(0,0,20) ZMK_MOCK_PRESS(0,1,10) ZMK_MOCK_RELEASE(0,1,10) ZMK_MOCK_RELEASE(0,0,1000)>;
 };

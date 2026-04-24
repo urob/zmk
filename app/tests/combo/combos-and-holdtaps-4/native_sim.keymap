@@ -1,5 +1,31 @@
-#include <dt-bindings/zmk/keys.h>
-#include <behaviors.dtsi>
+# n
+            lude < t
+                        bindings/z k keys.h>
+
+
+    
+          
+               
+               
+             
+
+        
+
+    
+          
+               
+               
+             
+
+        
+
+    
+          
+               
+               
+             
+
+        #include <behaviors.dtsi>
 #include <dt-bindings/zmk/kscan_mock.h>
 
 
@@ -24,11 +50,9 @@ ZMK_COMBO(tilde, &kp TILDE,     3 4, 50)
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-            &none         &none
-            &kp A         &mt LSHFT T
-            &none
-            >;
+            bindings = <&none &none
+                        &kp A &mt LSHFT T
+                        &none>;
         };
     };
 };
@@ -36,10 +60,8 @@ ZMK_COMBO(tilde, &kp TILDE,     3 4, 50)
 &kscan {
     rows = <3>;
     columns = <2>;
-    events = <
-    ZMK_MOCK_PRESS(1,1,500)
-    ZMK_MOCK_PRESS(1,0,100)
-    ZMK_MOCK_RELEASE(1,0,500)
-    ZMK_MOCK_RELEASE(1,1,0)
-    >;
+    events = <ZMK_MOCK_PRESS(1,1,500)
+              ZMK_MOCK_PRESS(1,0,100)
+              ZMK_MOCK_RELEASE(1,0,500)
+              ZMK_MOCK_RELEASE(1,1,0)>;
 };

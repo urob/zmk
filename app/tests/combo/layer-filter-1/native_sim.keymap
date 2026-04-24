@@ -8,6 +8,7 @@
 / {
     combos {
         compatible = "zmk,combos";
+
         combo_one {
             timeout-ms = <TIMEOUT>;
             key-positions = <0 1>;
@@ -20,20 +21,17 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-                &kp A &kp B
-                &kp C &tog 1
-            >;
+            bindings = <&kp A &kp B
+                        &kp C &tog 1>;
         };
     };
 };
 
 &kscan {
     events = <
-        /* Combo One */
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_PRESS(0,1,10)
-        ZMK_MOCK_RELEASE(0,0,10)
-        ZMK_MOCK_RELEASE(0,1,10)
-    >;
+              /* Combo One */
+              ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_PRESS(0,1,10)
+              ZMK_MOCK_RELEASE(0,0,10)
+              ZMK_MOCK_RELEASE(0,1,10)>;
 };

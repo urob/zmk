@@ -11,6 +11,7 @@
 #if ZMK_BEHAVIOR_OMIT(NONE)
         /omit-if-no-ref/
 #endif
+
         none: none {
             compatible = "zmk,behavior-none";
             #binding-cells = <0>;

@@ -2,6 +2,7 @@
     splits {
         #address-cells = <1>;
         #size-cells = <0>;
+
         split_input: split_input@0 {
             compatible = "zmk,input-split";
             reg = <0>;
@@ -9,7 +10,7 @@
     };
 
     split_listener: split_listener {
-        compatible =  "zmk,input-listener";
+        compatible = "zmk,input-listener";
         status = "disabled";
         device = <&split_input>;
     };

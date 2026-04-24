@@ -20,9 +20,8 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-                &add_layer &set_binding 1 0
-                &mo 1 &kp B>;
+            bindings = <&add_layer &set_binding 1 0
+                        &mo 1 &kp B>;
         };
 
         layer_1 {

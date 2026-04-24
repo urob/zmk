@@ -15,4 +15,3 @@
         compatible = "zephyr,cdc-acm-uart";
     };
 };
-

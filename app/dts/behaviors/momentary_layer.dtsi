@@ -11,6 +11,7 @@
 #if ZMK_BEHAVIOR_OMIT(MO)
         /omit-if-no-ref/
 #endif
+
         mo: momentary_layer {
             compatible = "zmk,behavior-momentary-layer";
             #binding-cells = <1>;

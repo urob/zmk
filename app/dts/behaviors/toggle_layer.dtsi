@@ -11,6 +11,7 @@
 #if ZMK_BEHAVIOR_OMIT(TOG)
         /omit-if-no-ref/
 #endif
+
         tog: toggle_layer {
             compatible = "zmk,behavior-toggle-layer";
             #binding-cells = <1>;

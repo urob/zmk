@@ -1,4 +1,3 @@
-
 / {
     // First, delete the existing basic GPIO based instance.
     /delete-node/ encoder;
@@ -50,6 +49,7 @@ encoder: &qdec0 {
     soft_off_sideband_behaviors {
         compatible = "zmk,kscan-sideband-behaviors";
         kscan = <&soft_off_direct_kscan>;
+
         soft_off {
             row = <0>;
             column = <0>;

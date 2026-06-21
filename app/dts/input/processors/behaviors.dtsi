@@ -10,7 +10,7 @@
     zip_button_behaviors: zip_button_behaviors {
         compatible = "zmk,input-processor-behaviors";
         #input-processor-cells = <0>;
-        codes =    <INPUT_BTN_0 INPUT_BTN_1 INPUT_BTN_2>;
-        bindings = <&none       &none       &none>;
+        codes = <INPUT_BTN_0 INPUT_BTN_1 INPUT_BTN_2>;
+        bindings = <&none &none &none>;
     };
 };

@@ -19,9 +19,8 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-                &hp LEFT_SHIFT F &hp LEFT_CONTROL G
-                &kp D &none>;
+            bindings = <&hp LEFT_SHIFT F &hp LEFT_CONTROL G
+                        &kp D &none>;
         };
     };
 };

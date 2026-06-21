@@ -7,10 +7,8 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-            &key_repeat &kp A
-            &kp LCTRL &kp C_VOL_UP
-            >;
+            bindings = <&key_repeat &kp A
+                        &kp LCTRL &kp C_VOL_UP>;
         };
     };
 };

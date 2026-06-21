@@ -10,8 +10,9 @@
 / {
     behaviors {
 #if ZMK_BEHAVIOR_OMIT(KEY_REPEAT)
-    /omit-if-no-ref/
+        /omit-if-no-ref/
 #endif
+
         key_repeat: key_repeat {
             compatible = "zmk,behavior-key-repeat";
             #binding-cells = <0>;
@@ -20,4 +21,3 @@
         };
     };
 };
-

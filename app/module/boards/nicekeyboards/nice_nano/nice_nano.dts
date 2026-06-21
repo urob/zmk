@@ -10,7 +10,6 @@
 #include "nice_nano-pinctrl.dtsi"
 #include "arduino_pro_micro_pins.dtsi"
 
-
 / {
     model = "nice!nano";
     compatible = "nice,nano";
@@ -23,6 +22,7 @@
 
     leds {
         compatible = "gpio-leds";
+
         blue_led: led_0 {
             gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
         };
@@ -75,7 +75,6 @@ zephyr_udc0: &usbd {
     status = "okay";
 };
 
-
 &flash0 {
     /*
      * For more information, see:
@@ -89,6 +88,7 @@ zephyr_udc0: &usbd {
         sd_partition: partition@0 {
             reg = <0x00000000 0x00026000>;
         };
+
         code_partition: partition@26000 {
             reg = <0x00026000 0x000c6000>;
         };

@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: MIT
  */
 
- #include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 
 / {
     /omit-if-no-ref/ zip_x_scaler: zip_x_scaler {

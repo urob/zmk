@@ -1,6 +1,5 @@
 #include <dt-bindings/led/led.h>
 
-
 &pinctrl {
     spi3_default: spi3_default {
         group1 {

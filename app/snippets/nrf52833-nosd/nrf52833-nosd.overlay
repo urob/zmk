@@ -12,6 +12,7 @@
         sd_partition: partition@0 {
             reg = <0x0 DT_SIZE_K(4)>;
         };
+
         code_partition: partition@1000 {
             reg = <DT_SIZE_K(4) DT_SIZE_K(428)>;
         };

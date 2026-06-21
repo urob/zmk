@@ -23,6 +23,7 @@
 
     leds {
         compatible = "gpio-leds";
+
         blue_led: led_0 {
             gpios = <&gpio0 20 GPIO_ACTIVE_LOW>;
         };

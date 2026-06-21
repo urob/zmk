@@ -7,20 +7,16 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-                &sk LEFT_SHIFT &none
-                &none &none
-            >;
+            bindings = <&sk LEFT_SHIFT &none
+                        &none &none>;
         };
     };
 };
 
 &kscan {
-    events = <
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_RELEASE(0,0,10)
-        /* the sticky key is pressed again, so the previous one must be cancelled */
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_RELEASE(0,0,1200)
-    >;
+    events = <ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_RELEASE(0,0,10)
+              /* the sticky key is pressed again, so the previous one must be cancelled */
+              ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_RELEASE(0,0,1200)>;
 };

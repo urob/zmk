@@ -16,19 +16,15 @@
     chosen {
         /delete-property/ zmk,kscan;
 
-    //    zmk,matrix-input = &mock_matrix_input;
+        //    zmk,matrix-input = &mock_matrix_input;
     };
 
     matrix_transform0: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
         columns = <20>;
         rows = <5>;
-
-
-        map = <
-            RC(0,0) RC(0,1)
-            RC(1,0) RC(1,1)
-        >;
+        map = <RC(0,0) RC(0,1)
+               RC(1,0) RC(1,1)>;
     };
 
     mock_matrix_input: mock_matrix_input {
@@ -36,14 +32,12 @@
 
         event-startup-delay = <100>;
         event-period = <2000>;
-        events
-            = <INPUT_EV_ABS INPUT_ABS_X 0 0>
-            , <INPUT_EV_ABS INPUT_ABS_Y 0 0>
-            , <INPUT_EV_KEY INPUT_BTN_TOUCH 1 1>
-            , <INPUT_EV_ABS INPUT_ABS_X 0 0>
-            , <INPUT_EV_ABS INPUT_ABS_Y 0 0>
-            , <INPUT_EV_KEY INPUT_BTN_TOUCH 0 1>
-            ;
+        events = <INPUT_EV_ABS INPUT_ABS_X 0 0>,
+                 <INPUT_EV_ABS INPUT_ABS_Y 0 0>,
+                 <INPUT_EV_KEY INPUT_BTN_TOUCH 1 1>,
+                 <INPUT_EV_ABS INPUT_ABS_X 0 0>,
+                 <INPUT_EV_ABS INPUT_ABS_Y 0 0>,
+                 <INPUT_EV_KEY INPUT_BTN_TOUCH 0 1>;
         exit-after;
     };
 
@@ -51,10 +45,8 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-                &kp B &kp C
-                &kp D &kp E
-            >;
+            bindings = <&kp B &kp C
+                        &kp D &kp E>;
         };
     };
 };

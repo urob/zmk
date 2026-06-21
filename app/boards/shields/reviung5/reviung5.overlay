@@ -8,8 +8,8 @@
 
 / {
     chosen {
-            zmk,kscan = &kscan0;
-            zmk,matrix-transform = &default_transform;
+        zmk,kscan = &kscan0;
+        zmk,matrix-transform = &default_transform;
     };
 
     default_transform: keymap_transform_0 {
@@ -21,21 +21,17 @@
     };
 
     kscan0: kscan_0 {
-            compatible = "zmk,kscan-gpio-matrix";
-            wakeup-source;
-            diode-direction = "col2row";
+        compatible = "zmk,kscan-gpio-matrix";
+        wakeup-source;
+        diode-direction = "col2row";
 
-            col-gpios
-                = <&pro_micro 4 GPIO_ACTIVE_HIGH>
-                , <&pro_micro 5 GPIO_ACTIVE_HIGH>
-                , <&pro_micro 6 GPIO_ACTIVE_HIGH>
-                , <&pro_micro 7 GPIO_ACTIVE_HIGH>
-                , <&pro_micro 8 GPIO_ACTIVE_HIGH>
-                ;
+        col-gpios = <&pro_micro 4 GPIO_ACTIVE_HIGH>,
+                    <&pro_micro 5 GPIO_ACTIVE_HIGH>,
+                    <&pro_micro 6 GPIO_ACTIVE_HIGH>,
+                    <&pro_micro 7 GPIO_ACTIVE_HIGH>,
+                    <&pro_micro 8 GPIO_ACTIVE_HIGH>;
 
-            row-gpios
-                = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-                ;
+        row-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
     };
 
     encoder: encoder {

@@ -12,6 +12,7 @@
 #if ZMK_BEHAVIOR_OMIT(CAPS_WORD)
         /omit-if-no-ref/
 #endif
+
         caps_word: caps_word {
             compatible = "zmk,behavior-caps-word";
             #binding-cells = <0>;
@@ -20,4 +21,3 @@
         };
     };
 };
-

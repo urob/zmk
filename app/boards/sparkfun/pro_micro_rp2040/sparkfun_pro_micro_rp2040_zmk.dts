@@ -7,7 +7,9 @@
 #include <../boards/sparkfun/pro_micro_rp2040/sparkfun_pro_micro_rp2040.dts>
 #include <arm/raspberrypi/rp2040-boot-mode-retention.dtsi>
 
-&pro_micro_serial { status = "disabled"; };
+&pro_micro_serial {
+    status = "disabled";
+};
 
 // We override to 2MB for maximum compatibility
 &code_partition {

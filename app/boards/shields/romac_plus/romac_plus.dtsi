@@ -17,24 +17,20 @@
         columns = <3>;
         rows = <4>;
 
-        map = <
-RC(0,0) RC(0,1) RC(0,2)
-RC(1,0) RC(1,1) RC(1,2)
-RC(2,0) RC(2,1) RC(2,2)
-RC(3,0) RC(3,1) RC(3,2)
-        >;
+        map = <RC(0,0) RC(0,1) RC(0,2)
+               RC(1,0) RC(1,1) RC(1,2)
+               RC(2,0) RC(2,1) RC(2,2)
+               RC(3,0) RC(3,1) RC(3,2)>;
     };
 
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
 
         diode-direction = "col2row";
-        row-gpios
-            = <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&pro_micro 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&pro_micro 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            ;
+        row-gpios = <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+                    <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+                    <&pro_micro 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+                    <&pro_micro 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
     };
 
     left_encoder: encoder_left {

@@ -7,24 +7,20 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-                &tog 2 &kp X
-                &tog 1 &none
-            >;
+            bindings = <&tog 2 &kp X
+                        &tog 1 &none>;
             sensor-bindings = <&inc_dec_kp A B>;
         };
+
         skip_layer {
-            bindings = <
-                &trans &kp Y
-                &none &none
-            >;
+            bindings = <&trans &kp Y
+                        &none &none>;
             sensor-bindings = <&inc_dec_kp N M>;
         };
+
         alt_layer {
-            bindings = <
-                &trans &kp Z
-                &none &none
-            >;
+            bindings = <&trans &kp Z
+                        &none &none>;
             sensor-bindings = <&inc_dec_kp C D>;
         };
     };

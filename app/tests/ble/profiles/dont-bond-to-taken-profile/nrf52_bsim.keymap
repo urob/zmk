@@ -4,11 +4,10 @@
 #include <dt-bindings/zmk/kscan_mock.h>
 
 &kscan {
-    events =
-    <ZMK_MOCK_PRESS(0,0,10000)
-    ZMK_MOCK_RELEASE(0,0,2000)
-    ZMK_MOCK_PRESS(0,1,100)
-    ZMK_MOCK_RELEASE(0,1,1000)>;
+    events = <ZMK_MOCK_PRESS(0,0,10000)
+              ZMK_MOCK_RELEASE(0,0,2000)
+              ZMK_MOCK_PRESS(0,1,100)
+              ZMK_MOCK_RELEASE(0,1,1000)>;
 };
 
 / {
@@ -16,9 +15,8 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-            &kp A &kp B
-            &bt BT_SEL 0 &bt BT_SEL 1>;
+            bindings = <&kp A &kp B
+                        &bt BT_SEL 0 &bt BT_SEL 1>;
         };
     };
 };

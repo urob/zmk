@@ -25,18 +25,14 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-                &mo_mod_macro &kp A
-                &kp B &kp C>;
+            bindings = <&mo_mod_macro &kp A
+                        &kp B &kp C>;
         };
 
         extra_layer {
-            bindings = <
-                &kp D &kp E
-                &kp F &kp G>;
-
+            bindings = <&kp D &kp E
+                        &kp F &kp G>;
         };
-
     };
 };
 

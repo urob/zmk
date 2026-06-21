@@ -9,6 +9,7 @@
 / {
     combos {
         compatible = "zmk,combos";
+
         combo_one {
             timeout-ms = <40>;
             key-positions = <0 1>;
@@ -20,20 +21,16 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-            &kp A         &kp B
-            &mt RSHFT RET &kp C
-            >;
+            bindings = <&kp A &kp B
+                        &mt RSHFT RET &kp C>;
         };
     };
 };
 
 &kscan {
-    events = <
-    ZMK_MOCK_PRESS(1,0,10)
-    ZMK_MOCK_PRESS(0,1,10)
-    ZMK_MOCK_PRESS(1,1,10)
-    ZMK_MOCK_RELEASE(0,1,50)
-    ZMK_MOCK_RELEASE(1,1,50)
-    >;
+    events = <ZMK_MOCK_PRESS(1,0,10)
+              ZMK_MOCK_PRESS(0,1,10)
+              ZMK_MOCK_PRESS(1,1,10)
+              ZMK_MOCK_RELEASE(0,1,50)
+              ZMK_MOCK_RELEASE(1,1,50)>;
 };

@@ -9,8 +9,9 @@
 / {
     behaviors {
 #if ZMK_BEHAVIOR_OMIT(KT)
-    /omit-if-no-ref/
+        /omit-if-no-ref/
 #endif
+
         kt: key_toggle {
             compatible = "zmk,behavior-key-toggle";
             #binding-cells = <1>;

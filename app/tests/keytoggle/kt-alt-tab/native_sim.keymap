@@ -4,33 +4,32 @@
 
 &kscan {
     events = <
-    /* Toggle LALT on */
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_RELEASE(0,0,10)
-    /* Tap TAB twice */
-        ZMK_MOCK_PRESS(0,1,10)
-        ZMK_MOCK_RELEASE(0,1,10)
-        ZMK_MOCK_PRESS(0,1,10)
-        ZMK_MOCK_RELEASE(0,1,10)
-    /* Toggle LSHFT on */
-        ZMK_MOCK_PRESS(1,0,10)
-        ZMK_MOCK_RELEASE(1,0,10)
-    /* Tap TAB once */
-        ZMK_MOCK_PRESS(0,1,10)
-        ZMK_MOCK_RELEASE(0,1,10)
-    /* Toggle LALT off */
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_RELEASE(0,0,10)
-    /* Tap A */
-        ZMK_MOCK_PRESS(1,1,10)
-        ZMK_MOCK_RELEASE(1,1,10)
-    /* Toggle LSHFT off */
-        ZMK_MOCK_PRESS(1,0,10)
-        ZMK_MOCK_RELEASE(1,0,10)
-    /* Tap A */
-        ZMK_MOCK_PRESS(1,1,10)
-        ZMK_MOCK_RELEASE(1,1,10)
-    >;
+              /* Toggle LALT on */
+              ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_RELEASE(0,0,10)
+              /* Tap TAB twice */
+              ZMK_MOCK_PRESS(0,1,10)
+              ZMK_MOCK_RELEASE(0,1,10)
+              ZMK_MOCK_PRESS(0,1,10)
+              ZMK_MOCK_RELEASE(0,1,10)
+              /* Toggle LSHFT on */
+              ZMK_MOCK_PRESS(1,0,10)
+              ZMK_MOCK_RELEASE(1,0,10)
+              /* Tap TAB once */
+              ZMK_MOCK_PRESS(0,1,10)
+              ZMK_MOCK_RELEASE(0,1,10)
+              /* Toggle LALT off */
+              ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_RELEASE(0,0,10)
+              /* Tap A */
+              ZMK_MOCK_PRESS(1,1,10)
+              ZMK_MOCK_RELEASE(1,1,10)
+              /* Toggle LSHFT off */
+              ZMK_MOCK_PRESS(1,0,10)
+              ZMK_MOCK_RELEASE(1,0,10)
+              /* Tap A */
+              ZMK_MOCK_PRESS(1,1,10)
+              ZMK_MOCK_RELEASE(1,1,10)>;
 };
 
 / {
@@ -38,10 +37,8 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-                &kt LALT &kp TAB
-                &kt LSHFT &kp A
-            >;
+            bindings = <&kt LALT &kp TAB
+                        &kt LSHFT &kp A>;
         };
     };
 };

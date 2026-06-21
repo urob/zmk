@@ -11,6 +11,7 @@
 #if ZMK_BEHAVIOR_OMIT(SK)
         /omit-if-no-ref/
 #endif
+
         sk: sticky_key {
             compatible = "zmk,behavior-sticky-key";
             #binding-cells = <1>;
@@ -22,6 +23,7 @@
 #if ZMK_BEHAVIOR_OMIT(STICKY_LAYER)
         /omit-if-no-ref/
 #endif
+
         sl: sticky_layer {
             compatible = "zmk,behavior-sticky-key";
             #binding-cells = <1>;
@@ -31,6 +33,4 @@
             display-name = "Sticky Layer";
         };
     };
-
 };
-

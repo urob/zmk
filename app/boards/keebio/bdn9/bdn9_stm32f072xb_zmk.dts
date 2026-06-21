@@ -33,27 +33,23 @@
         compatible = "zmk,matrix-transform";
         columns = <3>;
         rows = <3>;
-        map = <
-            RC(0,0) RC(0,1) RC(0,2)
-            RC(0,3) RC(0,4) RC(0,5)
-            RC(0,6) RC(0,7) RC(0,8)
-        >;
+        map = <RC(0,0) RC(0,1) RC(0,2)
+               RC(0,3) RC(0,4) RC(0,5)
+               RC(0,6) RC(0,7) RC(0,8)>;
     };
 
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-direct";
 
-        input-gpios
-            = <&gpiob 12 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpiob 5  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpiob 6  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpiob 14 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpiob 4  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpiob 7  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpioa 3  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpiof 1  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpiof 0  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            ;
+        input-gpios = <&gpiob 12 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
+                      <&gpiob 5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
+                      <&gpiob 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
+                      <&gpiob 14 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
+                      <&gpiob 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
+                      <&gpiob 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
+                      <&gpioa 3 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
+                      <&gpiof 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
+                      <&gpiof 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     };
 
     left_encoder: encoder_left {
@@ -63,6 +59,7 @@
         steps = <80>;
         status = "disabled";
     };
+
     mid_encoder: encoder_mid {
         compatible = "alps,ec11";
         a-gpios = <&gpioa 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
@@ -70,6 +67,7 @@
         steps = <80>;
         status = "disabled";
     };
+
     right_encoder: encoder_right {
         compatible = "alps,ec11";
         a-gpios = <&gpioa 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;

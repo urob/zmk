@@ -2,14 +2,11 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/kscan_mock.h>
 
-
 &kscan {
-    events = <
-        ZMK_MOCK_PRESS(1,0,10)
-        ZMK_MOCK_PRESS(0,1,10)
-        ZMK_MOCK_RELEASE(0,1,10)
-        ZMK_MOCK_RELEASE(1,0,10)
-    >;
+    events = <ZMK_MOCK_PRESS(1,0,10)
+              ZMK_MOCK_PRESS(0,1,10)
+              ZMK_MOCK_RELEASE(0,1,10)
+              ZMK_MOCK_RELEASE(1,0,10)>;
 };
 
 / {
@@ -17,10 +14,8 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-                &kp LC(A) &kp LS(B)
-                &kp LEFT_CONTROL &none
-            >;
+            bindings = <&kp LC(A) &kp LS(B)
+                        &kp LEFT_CONTROL &none>;
         };
     };
 };

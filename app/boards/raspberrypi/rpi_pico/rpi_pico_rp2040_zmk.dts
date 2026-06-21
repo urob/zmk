@@ -7,7 +7,9 @@
 #include <../boards/raspberrypi/rpi_pico/rpi_pico.dts>
 #include <arm/raspberrypi/rp2040-boot-mode-retention.dtsi>
 
-&uart0 { status = "disabled"; };
+&uart0 {
+    status = "disabled";
+};
 
 &code_partition {
     reg = <0x100 (DT_SIZE_M(2) - 0x100 - DT_SIZE_K(512))>;

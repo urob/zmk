@@ -14,21 +14,18 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-                &move_layer 1 2 &kp A
-                &mo 1 &mo 2>;
+            bindings = <&move_layer 1 2 &kp A
+                        &mo 1 &mo 2>;
         };
 
         layer_1 {
-            bindings = <
-                &kp B &trans
-                &trans &trans>;
+            bindings = <&kp B &trans
+                        &trans &trans>;
         };
 
         layer_2 {
-            bindings = <
-                &trans &kp C
-                &trans &trans>;
+            bindings = <&trans &kp C
+                        &trans &trans>;
         };
     };
 };

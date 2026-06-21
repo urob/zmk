@@ -16,11 +16,12 @@
     chosen {
         zmk,underglow = &led_strip;
         zmk,backlight = &back_led_backlight;
-        zmk,battery   = &vbatt;
+        zmk,battery = &vbatt;
     };
 
     back_led_backlight: pwmleds {
         compatible = "pwm-leds";
+
         pwm_led_0 {
             pwms = <&pwm0 0 PWM_USEC(20) PWM_POLARITY_NORMAL>;
         };
@@ -42,14 +43,12 @@
         #gpio-cells = <2>;
         gpio-map-mask = <0xffffffff 0xffffffc0>;
         gpio-map-pass-thru = <0 0x3f>;
-        gpio-map
-            = <1 0 &gpio0 22 0>     /* EXT1 */
-            , <2 0 &gpio0 21 0>     /* EXT2 */
-            , <3 0 &gpio0 24 0>     /* EXT3 */
-            , <4 0 &gpio0 20 0>     /* EXT4 */
-            , <5 0 &gpio0 25 0>     /* EXT5 */
-            , <6 0 &gpio1 00 0>     /* EXT6 */
-            ;
+        gpio-map = <1 0 &gpio0 22 0>,     /* EXT1 */
+                   <2 0 &gpio0 21 0>,     /* EXT2 */
+                   <3 0 &gpio0 24 0>,     /* EXT3 */
+                   <4 0 &gpio0 20 0>,     /* EXT4 */
+                   <5 0 &gpio0 25 0>,     /* EXT5 */
+                   <6 0 &gpio1 00 0>;     /* EXT6 */
     };
 };
 
@@ -92,21 +91,17 @@
 };
 
 &kscan0 {
-    row-gpios
-        = <&gpio0 26 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // LH ROW1
-        , <&gpio0 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // LH ROW2
-        , <&gpio0 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // LH ROW3
-        , <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // LH ROW4
-        , <&gpio0 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // LH ROW5
-        , <&gpio1 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // LH ROW6
-        ;
-    col-gpios
-        = <&gpio1 8 GPIO_ACTIVE_HIGH> // LH COL6
-        , <&gpio1 4 GPIO_ACTIVE_HIGH> // LH COL5
-        , <&gpio1 6 GPIO_ACTIVE_HIGH> // LH COL4
-        , <&gpio1 7 GPIO_ACTIVE_HIGH> // LH COL3
-        , <&gpio1 5 GPIO_ACTIVE_HIGH> // LH COL2
-        , <&gpio1 3 GPIO_ACTIVE_HIGH> // LH COL1
-        , <&gpio1 1 GPIO_ACTIVE_HIGH> // LH Thumb
-        ;
+    row-gpios = <&gpio0 26 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>, // LH ROW1
+                <&gpio0 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>, // LH ROW2
+                <&gpio0 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>, // LH ROW3
+                <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>, // LH ROW4
+                <&gpio0 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>, // LH ROW5
+                <&gpio1 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; // LH ROW6
+    col-gpios = <&gpio1 8 GPIO_ACTIVE_HIGH>, // LH COL6
+                <&gpio1 4 GPIO_ACTIVE_HIGH>, // LH COL5
+                <&gpio1 6 GPIO_ACTIVE_HIGH>, // LH COL4
+                <&gpio1 7 GPIO_ACTIVE_HIGH>, // LH COL3
+                <&gpio1 5 GPIO_ACTIVE_HIGH>, // LH COL2
+                <&gpio1 3 GPIO_ACTIVE_HIGH>, // LH COL1
+                <&gpio1 1 GPIO_ACTIVE_HIGH>; // LH Thumb
 };

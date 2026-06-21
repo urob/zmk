@@ -56,9 +56,8 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-            &tdm    &tds
-            &tdb    &td2>;
+            bindings = <&tdm &tds
+                        &tdb &td2>;
         };
     };
 };

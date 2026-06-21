@@ -17,21 +17,18 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-                &kp B &tog 1
-                &mo 2 &to 1>;
+            bindings = <&kp B &tog 1
+                        &mo 2 &to 1>;
         };
 
         lower_layer {
-            bindings = <
-                &kp C_NEXT &trans
-                &kp L  &kp J>;
+            bindings = <&kp C_NEXT &trans
+                        &kp L &kp J>;
         };
 
         raise_layer {
-            bindings = <
-                &kp W &tog 2
-                &tog_off 2  &mo 2>;
+            bindings = <&kp W &tog 2
+                        &tog_off 2 &mo 2>;
         };
     };
 };

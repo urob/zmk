@@ -22,6 +22,7 @@
 
     leds {
         compatible = "gpio-leds";
+
         blue_led: led_0 {
             gpios = <&gpio1 10 GPIO_ACTIVE_HIGH>;
         };
@@ -87,6 +88,7 @@ zephyr_udc0: &usbd {
         sd_partition: partition@0 {
             reg = <0x00000000 0x00026000>;
         };
+
         code_partition: partition@26000 {
             reg = <0x00026000 0x000c6000>;
         };

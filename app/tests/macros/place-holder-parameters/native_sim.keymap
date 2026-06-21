@@ -15,10 +15,9 @@
             compatible = "zmk,behavior-macro-two-param";
             wait-ms = <40>;
             tap-ms = <40>;
-            bindings = <
-                &macro_param_1to1 &kp MACRO_PLACEHOLDER
-                &kp SLASH
-                &macro_param_2to1 &kp MACRO_PLACEHOLDER>;
+            bindings = <&macro_param_1to1 &kp MACRO_PLACEHOLDER
+                        &kp SLASH
+                        &macro_param_2to1 &kp MACRO_PLACEHOLDER>;
         };
 
         to_second_macro: to_second_macro {
@@ -26,9 +25,8 @@
             compatible = "zmk,behavior-macro-two-param";
             wait-ms = <40>;
             tap-ms = <40>;
-            bindings = <
-                &macro_param_1to2 &mt LSHIFT MACRO_PLACEHOLDER
-                &macro_param_2to2 &mt RSHIFT MACRO_PLACEHOLDER>;
+            bindings = <&macro_param_1to2 &mt LSHIFT MACRO_PLACEHOLDER
+                        &macro_param_2to2 &mt RSHIFT MACRO_PLACEHOLDER>;
         };
 
         quote_letter_macro: quote_letter_macro {
@@ -36,10 +34,9 @@
             compatible = "zmk,behavior-macro-one-param";
             wait-ms = <40>;
             tap-ms = <40>;
-            bindings = <
-                &kp QUOT
-                &macro_param_1to1 &kp MACRO_PLACEHOLDER
-                &kp QUOT>;
+            bindings = <&kp QUOT
+                        &macro_param_1to1 &kp MACRO_PLACEHOLDER
+                        &kp QUOT>;
         };
     };
 
@@ -47,13 +44,13 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-            &slash_macro A B &quote_letter_macro B
-            &to_second_macro E F &kp C>;
+            bindings = <&slash_macro A B &quote_letter_macro B
+                        &to_second_macro E F &kp C>;
         };
     };
 };
 
 &kscan {
-    events = <ZMK_MOCK_PRESS(0,0,20) ZMK_MOCK_PRESS(0,1,10) ZMK_MOCK_RELEASE(0,1,10) ZMK_MOCK_RELEASE(0,0,10) ZMK_MOCK_PRESS(1,0,10) ZMK_MOCK_RELEASE(1,0,1000)>;
+    events = <ZMK_MOCK_PRESS(0,0,20) ZMK_MOCK_PRESS(0,1,10) ZMK_MOCK_RELEASE(0,1,10) ZMK_MOCK_RELEASE(0,0,10)
+              ZMK_MOCK_PRESS(1,0,10) ZMK_MOCK_RELEASE(1,0,1000)>;
 };

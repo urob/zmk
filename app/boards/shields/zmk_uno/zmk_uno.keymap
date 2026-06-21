@@ -25,12 +25,10 @@
 
         default_layer {
             display-name = "Default Layer";
-            bindings = <
-                &kp A &bl BL_TOG
-                &rgb_ug RGB_EFF &bt BT_CLR
-           >;
+            bindings = <&kp A &bl BL_TOG
+                        &rgb_ug RGB_EFF &bt BT_CLR>;
 
-           sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
 };

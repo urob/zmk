@@ -2,8 +2,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/kscan_mock.h>
 
-
-
 / {
     behaviors {
         ht_hold: behavior_hold_hold_tap {
@@ -20,9 +18,8 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-                &ht_hold LEFT_SHIFT F &ht_hold LEFT_CONTROL J
-                &kp D &kp RIGHT_CONTROL>;
+            bindings = <&ht_hold LEFT_SHIFT F &ht_hold LEFT_CONTROL J
+                        &kp D &kp RIGHT_CONTROL>;
         };
     };
 };

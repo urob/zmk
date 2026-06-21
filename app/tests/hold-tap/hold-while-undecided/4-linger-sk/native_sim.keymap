@@ -20,16 +20,13 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-                &ht_bal LEFT_SHIFT LEFT_SHIFT &ht_bal LEFT_SHIFT LEFT_CONTROL
-                &kp D &kp RIGHT_CONTROL>;
+            bindings = <&ht_bal LEFT_SHIFT LEFT_SHIFT &ht_bal LEFT_SHIFT LEFT_CONTROL
+                        &kp D &kp RIGHT_CONTROL>;
         };
     };
 };
 
 &kscan {
-    events = <
-        ZMK_MOCK_PRESS(0,0,10)
-        ZMK_MOCK_RELEASE(0,0,10)
-    >;
+    events = <ZMK_MOCK_PRESS(0,0,10)
+              ZMK_MOCK_RELEASE(0,0,10)>;
 };

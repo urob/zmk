@@ -8,8 +8,8 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp A>, <&kp B>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-            keep-mods = <(MOD_LSFT|MOD_RSFT)>;  // no masking
+            mods = <(MOD_LSFT | MOD_RSFT)>;
+            keep-mods = <(MOD_LSFT | MOD_RSFT)>;  // no masking
         };
     };
 
@@ -17,19 +17,15 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-                &kp LEFT_ALT &mod_morph
-                &kp LEFT_SHIFT &kp RIGHT_SHIFT
-            >;
+            bindings = <&kp LEFT_ALT &mod_morph
+                        &kp LEFT_SHIFT &kp RIGHT_SHIFT>;
         };
     };
 };
 
 &kscan {
-    events = <
-        ZMK_MOCK_PRESS(1,0,10)
-        ZMK_MOCK_PRESS(0,1,10)
-        ZMK_MOCK_RELEASE(0,1,10)
-        ZMK_MOCK_RELEASE(1,0,10)
-    >;
+    events = <ZMK_MOCK_PRESS(1,0,10)
+              ZMK_MOCK_PRESS(0,1,10)
+              ZMK_MOCK_RELEASE(0,1,10)
+              ZMK_MOCK_RELEASE(1,0,10)>;
 };

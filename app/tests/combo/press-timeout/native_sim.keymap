@@ -5,6 +5,7 @@
 / {
     combos {
         compatible = "zmk,combos";
+
         combo_one {
             timeout-ms = <30>;
             key-positions = <0 1>;
@@ -16,19 +17,15 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-                &kp A &kp B
-                &none &none
-            >;
+            bindings = <&kp A &kp B
+                        &none &none>;
         };
     };
 };
 
 &kscan {
-    events = <
-        ZMK_MOCK_PRESS(0,0,100)
-        ZMK_MOCK_PRESS(0,1,10)
-        ZMK_MOCK_RELEASE(0,0,10)
-        ZMK_MOCK_RELEASE(0,1,10)
-    >;
+    events = <ZMK_MOCK_PRESS(0,0,100)
+              ZMK_MOCK_PRESS(0,1,10)
+              ZMK_MOCK_RELEASE(0,0,10)
+              ZMK_MOCK_RELEASE(0,1,10)>;
 };
